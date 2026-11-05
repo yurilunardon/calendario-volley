@@ -7,7 +7,7 @@ Scraper in Python che estrae il calendario FIPAV del New Volley Cartigliano (Pri
 ## Come aggiungerlo al calendario
 
 ```
-https://yurilunardon.github.io/calendario-volley/calendario.ics
+https://yurilunardon.github.io/calendario-volley-cartigliano/calendario.ics
 ```
 
 ### Generale

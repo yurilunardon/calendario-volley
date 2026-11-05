@@ -10,14 +10,16 @@ permissions:
   pages: write
   id-token: write
 
+# Una nuova esecuzione prende il posto di quella prima: una rimasta bloccata non ferma più tutte le altre.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Build and Generate ICS
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,6 +50,7 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
